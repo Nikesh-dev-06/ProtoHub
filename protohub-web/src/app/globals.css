@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #F8F9FA;
+    --color-surface: #FFFFFF;
+    --color-surface-hover: #F1F3F5;
+    --color-surface-raised: #FFFFFF;
+    --color-border: #E5E7EB;
+    --color-border-hover: #D1D5DB;
+    --color-ink: #111827;
+    --color-ink-muted: #6B7280;
+    --color-ink-faint: #9CA3AF;
+    --color-accent: #8B5CF6;
+    --color-accent-soft: #8B5CF61A;
+    --color-accent-hover: #A78BFA;
+    --color-accent-gradient: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%);
+    --color-success: #10B981;
+    --color-warning: #F59E0B;
+    --color-danger: #EF4444;
+    --color-info: #3B82F6;
+  }
+  .dark {
+    --color-bg: #050505;
+    --color-surface: #0A0A0A;
+    --color-surface-hover: #141414;
+    --color-surface-raised: #1A1A1A;
+    --color-border: #222222;
+    --color-border-hover: #333333;
+    --color-ink: #FFFFFF;
+    --color-ink-muted: #A1A1AA;
+    --color-ink-faint: #52525B;
+    --color-accent: #8B5CF6;
+    --color-accent-soft: #8B5CF61A;
+    --color-accent-hover: #A78BFA;
+    --color-accent-gradient: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%);
+    --color-success: #10B981;
+    --color-warning: #F59E0B;
+    --color-danger: #EF4444;
+    --color-info: #3B82F6;
+  }
+  * {
+    @apply border-border;
+  }
+  html {
+    color-scheme: light dark;
+  }
+  body {
+    @apply bg-bg text-ink antialiased min-h-screen transition-colors duration-300;
+    font-feature-settings: 'cv11', 'ss01';
+    background-image: radial-gradient(circle at top, rgba(139, 92, 246, 0.05) 0%, transparent 40%),
+                      radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.05) 0%, transparent 40%);
+    background-attachment: fixed;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-bg;
+  }
+  ::selection {
+    background-color: theme('colors.accent.DEFAULT');
+    color: white;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply backdrop-blur-md border border-white/5;
+    background-color: color-mix(in srgb, var(--color-surface) 80%, transparent);
+  }
+  .glass-card {
+    @apply backdrop-blur-md border border-white/5 shadow-subtle hover:shadow-glow transition-all duration-300;
+    background-color: color-mix(in srgb, var(--color-surface-raised) 80%, transparent);
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-info;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-surface-raised rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-border-hover;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Status dot — the app's signature motif: every status anywhere renders this way. */
+.status-dot {
+  @apply inline-block h-1.5 w-1.5 rounded-full flex-shrink-0 shadow-[0_0_8px_rgba(255,255,255,0.4)];
+}

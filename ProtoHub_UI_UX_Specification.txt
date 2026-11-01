@@ -1,0 +1,985 @@
+PROTOHUB — COMPLETE UI/UX SPECIFICATION
+Version 1.0 — MVP
+
+This document is the authoritative UI/UX specification for the ProtoHub MVP.
+The PRD/SRS defines WHAT ProtoHub does; this document defines HOW ProtoHub looks and behaves.
+
+1. DESIGN DIRECTION
+
+ProtoHub should feel professional, youthful, technical, collaborative, and trustworthy.
+
+Design inspiration:
+- Linear: clean project/work management
+- Notion: flexible workspace feel
+- GitHub: developer credibility
+- Slack: communication
+- Vercel: modern SaaS quality
+
+Do not copy these products. Create an original ProtoHub identity.
+
+Avoid childish education graphics, excessive gradients, excessive glassmorphism, generic neon AI aesthetics, cluttered dashboards, excessive rounded cards, and unnecessary animation.
+
+2. GLOBAL APP LAYOUT
+
+Desktop:
+- Left sidebar: approximately 240–260px
+- Top navigation bar
+- Flexible main content
+- Maximum content width around 1440px
+
+Sidebar navigation:
+- Dashboard
+- Discover
+- Projects
+- Mentors
+- Messages
+- AI Assistant
+
+Workspace section:
+- Contextual project/workspace shortcuts
+
+Bottom:
+- Settings
+- Help & Support
+- User profile
+
+Top bar:
+- Breadcrumb
+- Global Search
+- Notifications
+- User Avatar
+
+Tablet:
+- Collapsible sidebar.
+
+Mobile:
+- Compact top header
+- Drawer where needed
+- Bottom navigation for primary destinations
+
+3. GLOBAL SEARCH
+
+Search placeholder:
+"Search ProtoHub..."
+
+Keyboard shortcut:
+- Cmd + K on macOS
+- Ctrl + K on Windows/Linux
+
+Search:
+- People
+- Projects
+- Mentors
+- Skills
+- Messages
+
+Results should be grouped by category and support keyboard navigation with Up/Down, Enter, and Escape.
+
+4. DASHBOARD — /dashboard
+
+Purpose:
+The dashboard is the user's home and should immediately answer:
+1. What am I working on?
+2. Who can help me?
+3. What should I do next?
+
+Header:
+"Good evening, [Name]."
+Subtitle:
+"Here's what's happening with your learning and projects."
+
+Primary action:
++ Create Project
+
+Quick actions:
+- New Project
+- Find a Mentor
+- Explore Projects
+- Ask AI
+
+Active Projects section:
+Each card shows:
+- Project name
+- Short description
+- Status
+- Technologies
+- Team avatars
+- Progress
+- Remaining tasks
+
+Upcoming Tasks:
+- Task name
+- Due date
+- Project/context
+
+Mentorship:
+If connected:
+- Mentor avatar
+- Name
+- Role
+- Next interaction
+- Open Conversation
+
+If no mentor:
+"Find someone who can help you move your project forward."
+Action: Discover Mentors
+
+AI panel:
+- ProtoHub AI
+- "What are you working on today?"
+- "Ask about your project..."
+- Suggested actions:
+  - Improve my project architecture
+  - Explain this error
+  - Suggest next tasks
+
+Recent Activity:
+Timeline containing:
+- Project joins
+- Mentor comments
+- Completed tasks
+- Invitations
+- Collaboration events
+
+Do not make the dashboard a giant grid of unrelated cards.
+
+5. DISCOVER — /discover
+
+Header:
+"Discover"
+Subtitle:
+"Find people, projects and opportunities."
+
+Tabs:
+- Projects
+- People
+- Mentors
+
+Search:
+"Search projects..."
+
+Filters:
+- Technology
+- Category
+- Difficulty
+- Project status
+- Team size
+
+Project cards:
+- Name
+- Description
+- Owner
+- Technologies
+- Members
+- Status
+- Looking for
+
+People cards:
+- Avatar
+- Name
+- Headline
+- Skills
+- Project count
+- Skill count
+- View Profile
+
+Mentor cards:
+- Avatar
+- Name
+- Professional title
+- Company/experience
+- Expertise
+- Rating
+- Mentee count
+- View Profile
+- Request Mentorship
+
+6. MENTOR PROFILE — /mentors/[id]
+
+Header:
+- Avatar
+- Name
+- Professional title
+- Expertise
+
+Actions:
+- Request Mentorship
+- Message
+
+Sections:
+- About
+- Expertise
+- Experience timeline
+- Projects
+- Mentoring capabilities
+- Reviews (future-ready)
+
+Mentoring capabilities:
+- Project guidance
+- Career advice
+- Code review
+- Research guidance
+
+7. PROJECTS — /projects
+
+Header:
+"Projects"
+Subtitle:
+"Build something meaningful with other people."
+
+Primary action:
++ Create Project
+
+Tabs:
+- My Projects
+- Joined
+- Discover
+- Archived
+
+8. CREATE PROJECT — /projects/create
+
+Dedicated page, not a giant modal.
+
+Header:
+"Create a Project"
+Subtitle:
+"Turn an idea into something real."
+
+Fields:
+- Project Name
+- Short Description
+- Detailed Description
+- Category
+- Technologies
+- Difficulty
+- Visibility
+
+Visibility:
+- Public
+- Private
+- Invite Only
+
+"What are you looking for?"
+- Frontend Developer
+- Backend Developer
+- Designer
+- AI/ML Engineer
+- Researcher
+- Mentor
+
+Actions:
+- Cancel
+- Create Project
+
+Use proper validation and useful error messages.
+
+9. PROJECT WORKSPACE — /projects/[id]
+
+This is the most important page in ProtoHub.
+
+Header:
+- Back to Projects
+- Project name
+- Short description
+- Status
+- Technology tags
+- Invite
+- Share
+- Project Settings
+- Team avatars
+
+Workspace navigation:
+- Overview
+- Tasks
+- Chat
+- Files
+- Activity
+- AI
+
+The workspace should feel like a mini operating environment for actually building a project.
+
+10. PROJECT OVERVIEW
+
+Show:
+- Description
+- Team
+- Current progress
+- Progress bar
+- Completed tasks
+- Remaining tasks
+- Recent activity
+
+11. TASKS — /projects/[id]/tasks
+
+Use a Kanban board:
+- TODO
+- IN PROGRESS
+- DONE
+
+Task cards:
+- Title
+- Description preview
+- Priority
+- Assignee
+- Due date
+
+Task actions:
+- Create
+- Assign
+- Change status
+- Set priority
+- Set due date
+- Edit
+- Delete
+- Comments/activity where supported
+
+12. TASK DETAIL
+
+May use a side panel or dedicated page.
+
+Show:
+- Title
+- Status
+- Priority
+- Assignee
+- Due date
+- Description
+- Comments
+- Activity
+
+Actions:
+- Edit
+- Assign
+- Change status
+- Delete
+
+13. PROJECT CHAT — /projects/[id]/chat
+
+Focused collaboration chat.
+
+Possible channels:
+- General
+- Development
+- Design
+
+Messages show:
+- Sender
+- Timestamp
+- Message
+- Grouped consecutive messages
+
+Composer:
+- Attachment button
+- Text input
+- Send button
+
+Support real-time messaging.
+
+14. GLOBAL MESSAGES — /messages
+
+Desktop:
+Three columns:
+1. Conversations
+2. Active chat
+3. Conversation details
+
+Details:
+- Profile
+- Shared projects
+- Relevant context
+
+Mobile:
+Show one view at a time.
+
+15. AI ASSISTANT — /ai
+
+ProtoHub AI should be a serious project-aware AI workspace, not a generic chatbot clone.
+
+Left panel:
+- AI Assistant
+- New Conversation
+- Recent conversations
+
+Recent examples:
+- Project Architecture
+- Research Help
+- React Error
+
+Main:
+- Conversation
+- User messages
+- AI responses
+- Composer
+
+Composer:
+"Ask ProtoHub AI..."
+- Attachment/context control
+- Project context selector
+- Send
+
+Empty state:
+"What are you building?"
+
+Suggested actions:
+- Project Ideas
+- Architecture
+- Research
+- Debugging
+- Learning Roadmap
+- Documentation
+
+When active, show project context such as:
+"Context: AI Study Assistant"
+
+16. NOTIFICATIONS
+
+Notification panel from the bell icon.
+
+Examples:
+Mentorship:
+"Priya accepted your mentorship request."
+
+Projects:
+"Rahul invited you to AI Study Assistant."
+
+Tasks:
+"You were assigned API Authentication."
+
+Messages:
+"New message from Priya."
+
+Unread items need a subtle indicator.
+
+17. PROFILE — /profile
+
+Header:
+- Avatar
+- Name
+- Headline
+- Bio
+- Location
+- Edit Profile
+
+Stats:
+- Projects
+- Completed projects
+- Skills
+- Mentors
+
+Tabs:
+- Overview
+- Projects
+- Skills
+- Experience
+- Activity
+
+Projects act as the user's portfolio.
+
+18. SETTINGS — /settings
+
+Navigation:
+- Account
+- Profile
+- Security
+- Notifications
+- Appearance
+- Privacy
+
+Account:
+- Name
+- Email
+- Account information
+
+Security:
+- Password
+- Sessions
+
+Notifications:
+- Email notifications
+- Mentorship requests
+- Project activity
+- Messages
+- AI updates
+
+Appearance:
+- Light
+- Dark
+- System
+
+Privacy:
+- Profile visibility
+- Privacy controls
+
+19. ADMIN — /admin
+
+Only Admin users may access.
+
+Navigation:
+- Users
+- Projects
+- Reports
+- Moderation
+- System
+
+Metrics:
+- Total Users
+- Active Users
+- Projects
+- Mentorship Requests
+- Reports
+
+Use the same ProtoHub design system, optimized for data management.
+
+20. LOGIN
+
+Minimal centered authentication page.
+
+Content:
+- ProtoHub logo/name
+- "Build. Learn. Connect."
+- Email
+- Password
+- Password visibility toggle
+- Forgot password
+- Sign In
+- Sign Up
+
+Authentication pages should be simpler than the main app.
+
+21. REGISTRATION
+
+Short multi-step flow.
+
+Step 1:
+Create account
+
+Step 2:
+Choose role:
+- Student
+- Teacher
+- Professional
+
+Step 3:
+Complete basic profile
+
+Do not request excessive information during registration.
+
+22. ONBOARDING
+
+Step 1:
+"Tell us about yourself"
+- Name
+- Headline
+- Bio
+
+Step 2:
+"What are you interested in?"
+- Skill selection
+
+Step 3:
+"What do you want to do?"
+- Build projects
+- Find mentors
+- Collaborate
+- Learn
+- Mentor others
+
+Step 4:
+"You're ready."
+"Let's build something."
+
+23. EMPTY STATES
+
+Every page must have intentional empty states.
+
+Example:
+"No projects yet."
+"Your next great project could start here."
+
+Actions:
+- Create Project
+- Discover Projects
+
+Never leave a page blank.
+
+24. LOADING STATES
+
+Use skeleton loaders for content-heavy pages.
+Avoid full-screen spinners unless absolutely necessary.
+Skeletons should resemble the final layout.
+
+25. ERROR STATES
+
+Example:
+"Something went wrong."
+"We couldn't load this project."
+[Try Again]
+
+Never expose stack traces, database errors, or internal technical details.
+
+26. TOASTS
+
+Use subtle toast notifications.
+
+Success:
+- Project created successfully
+- Mentorship request sent
+- Task updated
+
+Error:
+"Unable to save changes. Please try again."
+
+Toasts should not block the user.
+
+27. MODALS
+
+Use modals for:
+- Delete confirmations
+- Invite member
+- Quick create
+- Small confirmations
+- Small focused forms
+
+Prefer dedicated pages for:
+- Create project
+- Profile editing
+- Settings
+- AI
+- Project workspace
+
+28. TYPOGRAPHY
+
+Recommended:
+Inter or equivalent modern sans-serif.
+
+Sizes:
+- Page title: 28–32px
+- Section title: 20–24px
+- Card title: 15–17px
+- Body: 14–16px
+- Metadata: 12–13px
+
+29. SPACING
+
+Use an 8px spacing system:
+4, 8, 12, 16, 24, 32, 40, 48, 64px.
+
+Cards generally use 20–24px internal padding.
+
+30. BORDERS
+
+Use subtle borders.
+Avoid heavy outlines.
+Cards should feel structured rather than boxed in.
+
+31. BORDER RADIUS
+
+Recommended:
+- Buttons: 8px
+- Inputs: 8px
+- Cards: 10–12px
+- Dialogs: 12–16px
+
+Do not make every element pill-shaped.
+Use pills mainly for tags, statuses, and filters.
+
+32. COLOR SYSTEM
+
+Use a mostly neutral interface.
+
+Semantic design tokens:
+- Background
+- Foreground
+- Muted
+- Border
+- Primary
+- Secondary
+- Success
+- Warning
+- Destructive
+- Info
+
+Use a distinctive but restrained ProtoHub primary color.
+
+Do not use rainbow UI.
+
+Status colors:
+- Success: green family
+- Warning: amber family
+- Error: red family
+- Info: blue family
+
+Support complete dark mode.
+
+33. BUTTONS
+
+Variants:
+- Primary
+- Secondary
+- Ghost
+- Destructive
+
+Important buttons require:
+- Default
+- Hover
+- Active
+- Disabled
+- Loading
+
+states.
+
+34. FORMS
+
+Every form field should have:
+- Label
+- Input/control
+- Helper text when useful
+- Validation
+- Error message
+
+Example:
+Project name *
+[ AI Study Assistant ]
+"Give your project a clear, memorable name."
+
+Validation:
+"Project name is required."
+
+35. RESPONSIVE BEHAVIOR
+
+Desktop:
+- Persistent sidebar
+- Top bar
+- Multi-column layouts where appropriate
+
+Tablet:
+- Collapsible sidebar
+- Reduced multi-column layouts
+
+Mobile:
+Top header:
+- Menu
+- ProtoHub
+- Notifications
+
+Bottom navigation:
+- Home
+- Discover
+- Projects
+- Messages
+- Profile
+
+Project workspace:
+Use horizontal scrolling tabs or another mobile-friendly navigation control.
+
+36. ACCESSIBILITY
+
+Every interactive element must support:
+- Keyboard interaction
+- Visible focus state
+- Accessible label
+- Sufficient contrast
+- Semantic HTML
+
+Images require meaningful alt text.
+Icon-only buttons require accessible labels.
+Never communicate status through color alone.
+
+37. ANIMATION
+
+Animations must be subtle and fast.
+
+Appropriate:
+- Page transitions
+- Dropdowns
+- Dialogs
+- Hover feedback
+- Toast appearance
+- Task movement
+
+Avoid:
+- Constant floating animations
+- Excessive bouncing
+- Unnecessary parallax
+- Slow transitions
+
+The UI should feel fast.
+
+38. MICROINTERACTIONS
+
+Examples:
+Task: Unchecked -> Checked
+Mentorship: Request -> Connected
+Project creation: Create -> Creating... -> Created
+Message: Sending... -> Delivered
+
+Use microinteractions to make state changes clear without becoming distracting.
+
+39. PROJECT STATUS
+
+Statuses:
+- Planning
+- Active
+- Completed
+- Archived
+
+Each status should have an icon, label, and semantic visual treatment.
+
+40. PROJECT VISIBILITY
+
+Options:
+- Public
+- Private
+- Invite Only
+
+Show a visibility icon next to project status where useful.
+
+41. CORE UX PRINCIPLE
+
+ProtoHub should always answer:
+
+1. What am I working on?
+   Projects
+
+2. Who can help me?
+   Mentors and collaborators
+
+3. What should I do next?
+   Tasks and AI recommendations
+
+The dashboard and workspace should consistently reinforce these questions.
+
+42. FINAL NAVIGATION MAP
+
+PUBLIC
+- Landing
+- Login
+- Register
+- About
+- Public Profile / Project
+
+AUTHENTICATED
+- Dashboard
+- Discover
+  - Projects
+  - People
+  - Mentors
+- Projects
+  - My Projects
+  - Joined
+  - Discover
+  - Create
+  - Project
+    - Overview
+    - Tasks
+    - Chat
+    - Files
+    - Activity
+    - AI
+- Mentors
+  - Discover
+  - Mentor Profile
+- Messages
+- AI Assistant
+- Profile
+- Settings
+  - Account
+  - Profile
+  - Security
+  - Notifications
+  - Appearance
+  - Privacy
+
+ADMIN
+- Admin Dashboard
+  - Users
+  - Projects
+  - Reports
+  - Moderation
+  - System
+
+43. ANTIGRAVITY IMPLEMENTATION INSTRUCTION
+
+Read:
+docs/ProtoHub_PRD_SRS.txt
+docs/ProtoHub_UI_UX_Specification.txt
+
+The PRD/SRS defines WHAT ProtoHub must do.
+This UI/UX specification defines HOW ProtoHub must look and behave.
+
+Treat both documents as authoritative project requirements.
+
+Build the complete ProtoHub frontend according to both documents.
+
+Do not create a generic dashboard template.
+Do not invent random pages.
+Do not simplify specified pages without explaining why.
+
+Implement:
+- Complete navigation
+- Page hierarchy
+- Layouts
+- Components
+- Design system
+- Responsive behavior
+- Accessibility
+- Forms
+- Loading states
+- Empty states
+- Error states
+- Success states
+- Notifications
+- Modals
+- Drawers
+- Tabs
+- Filters
+- Project workspace
+- Chat
+- AI interface
+- Profiles
+- Mentor discovery
+- Project discovery
+- Dashboard
+- Settings
+- Admin interface
+
+Use existing backend APIs when available.
+
+If an API is not implemented yet:
+- Create a clean typed API abstraction.
+- Use realistic development data only where necessary for UI development.
+- Keep mock data separate from production data.
+- Do not permanently hardcode mock data into UI components.
+
+Create reusable components and a consistent ProtoHub design system.
+
+Before implementation:
+1. Inspect the existing frontend.
+2. Inspect backend/API contracts.
+3. Inspect project structure.
+4. Read both specification documents completely.
+5. Create a frontend implementation plan.
+6. Identify missing APIs required by the UI.
+7. Implement incrementally.
+
+For every page verify:
+- Desktop layout
+- Tablet layout
+- Mobile layout
+- Loading state
+- Empty state
+- Error state
+- Success state
+- Permission state
+- Accessibility
+- Keyboard navigation
+- Responsive navigation
+- Form validation
+- API error handling
+
+A page is not complete merely because it renders.
+
+A page is complete only when its interactions, states, responsive behavior, accessibility, and API integration are implemented.
+
+Start by auditing the repository and creating the frontend implementation plan.
+Do not begin by generating random UI code.

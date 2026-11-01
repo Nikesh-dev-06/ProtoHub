@@ -1,0 +1,86 @@
+export declare enum UserRole {
+    STUDENT = "STUDENT",
+    TEACHER = "TEACHER",
+    PROFESSIONAL = "PROFESSIONAL",
+    HOBBYIST = "HOBBYIST",
+    MENTOR = "MENTOR",
+    ADMIN = "ADMIN"
+}
+export declare enum ProjectStatus {
+    DRAFT = "DRAFT",
+    ACTIVE = "ACTIVE",
+    COMPLETED = "COMPLETED",
+    ARCHIVED = "ARCHIVED"
+}
+export declare enum ProjectVisibility {
+    PUBLIC = "PUBLIC",
+    PRIVATE = "PRIVATE"
+}
+export declare enum ProjectMemberRole {
+    OWNER = "OWNER",
+    MAINTAINER = "MAINTAINER",
+    CONTRIBUTOR = "CONTRIBUTOR"
+}
+export declare enum MembershipStatus {
+    ACTIVE = "ACTIVE",
+    LEFT = "LEFT",
+    REMOVED = "REMOVED"
+}
+export declare enum JoinRequestStatus {
+    PENDING = "PENDING",
+    ACCEPTED = "ACCEPTED",
+    REJECTED = "REJECTED",
+    WITHDRAWN = "WITHDRAWN"
+}
+export declare enum MentorshipStatus {
+    PENDING = "PENDING",
+    ACCEPTED = "ACCEPTED",
+    REJECTED = "REJECTED",
+    CANCELLED = "CANCELLED",
+    COMPLETED = "COMPLETED"
+}
+export declare enum TaskPriority {
+    LOW = "LOW",
+    MEDIUM = "MEDIUM",
+    HIGH = "HIGH",
+    URGENT = "URGENT"
+}
+export declare enum SkillProficiency {
+    BEGINNER = "BEGINNER",
+    INTERMEDIATE = "INTERMEDIATE",
+    ADVANCED = "ADVANCED",
+    EXPERT = "EXPERT"
+}
+export declare enum NotificationType {
+    PROJECT_INVITE = "PROJECT_INVITE",
+    JOIN_REQUEST = "JOIN_REQUEST",
+    JOIN_REQUEST_ACCEPTED = "JOIN_REQUEST_ACCEPTED",
+    JOIN_REQUEST_REJECTED = "JOIN_REQUEST_REJECTED",
+    MENTORSHIP_REQUEST = "MENTORSHIP_REQUEST",
+    MENTORSHIP_ACCEPTED = "MENTORSHIP_ACCEPTED",
+    MENTORSHIP_REJECTED = "MENTORSHIP_REJECTED",
+    TASK_ASSIGNED = "TASK_ASSIGNED",
+    TASK_COMMENT = "TASK_COMMENT",
+    CHAT_MESSAGE = "CHAT_MESSAGE",
+    MENTION = "MENTION",
+    SYSTEM = "SYSTEM"
+}
+export declare enum ActivityAction {
+    PROJECT_CREATED = "PROJECT_CREATED",
+    PROJECT_UPDATED = "PROJECT_UPDATED",
+    MEMBER_JOINED = "MEMBER_JOINED",
+    MEMBER_LEFT = "MEMBER_LEFT",
+    MEMBER_REMOVED = "MEMBER_REMOVED",
+    TASK_CREATED = "TASK_CREATED",
+    TASK_UPDATED = "TASK_UPDATED",
+    TASK_COMPLETED = "TASK_COMPLETED",
+    TASK_ASSIGNED = "TASK_ASSIGNED",
+    COMMENT_ADDED = "COMMENT_ADDED",
+    FILE_UPLOADED = "FILE_UPLOADED",
+    MENTORSHIP_ACCEPTED = "MENTORSHIP_ACCEPTED"
+}
+export declare enum AIRole {
+    USER = "USER",
+    ASSISTANT = "ASSISTANT",
+    SYSTEM = "SYSTEM"
+}

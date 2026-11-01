@@ -1,0 +1,467 @@
+PROTOHUB
+PRODUCT REQUIREMENTS DOCUMENT (PRD) + SOFTWARE REQUIREMENTS SPECIFICATION (SRS)
+Version 1.0 — MVP
+Date: August 10, 2026
+
+============================================================
+PART I — PRODUCT REQUIREMENTS DOCUMENT (PRD)
+============================================================
+
+1. PRODUCT OVERVIEW
+
+ProtoHub is an AI-powered collaborative learning platform connecting students, teachers, mentors, and industry professionals in one unified workspace. The MVP focuses on learning through real-world projects: users can discover collaborators and mentors, create and manage projects, communicate, receive AI-assisted guidance, and build a professional portfolio.
+
+2. VISION
+
+To become a global platform where learning happens through collaboration, mentorship, and real-world project experience.
+
+3. MISSION
+
+Help learners transform knowledge into practical skills by connecting them with experienced people and collaborative project opportunities, supported by AI-powered tools.
+
+4. PROBLEM STATEMENT
+
+• Students struggle to find reliable mentors and project teammates beyond their immediate college or social network.
+• Project work is fragmented across chat, task-management, documentation, file-storage, and code platforms.
+• Students often lack timely expert guidance while building projects.
+• Teachers and professionals lack a focused environment for mentoring and project collaboration.
+• Traditional learning platforms emphasize content consumption rather than learning by building.
+
+5. PRODUCT GOAL
+
+Create a focused MVP that makes ProtoHub useful for one core journey: a student discovers a project or mentor, forms or joins a team, collaborates in a project workspace, receives mentorship, uses AI assistance, and completes work that can strengthen their portfolio.
+
+6. TARGET USERS
+
+• Students: learners seeking practical experience, teammates, mentors, and portfolio projects.
+• Teachers: educators who want to guide students and participate in projects.
+• Industry Professionals: experienced people willing to mentor, review, or collaborate with learners.
+• Administrators: platform operators responsible for moderation and system management.
+
+7. CORE VALUE PROPOSITION
+
+ProtoHub is not simply another course platform or social network. It combines mentorship, project collaboration, communication, project management, and AI assistance around a single project-centered experience.
+
+8. MVP SCOPE
+
+8.1 AUTHENTICATION
+• Registration and login
+• Role selection
+• Email verification
+• Password reset
+• Secure sessions
+• Role-based access control
+
+8.2 PROFILES
+• Profile photo
+• Name and headline
+• Bio
+• Education and experience
+• Skills and interests
+• Portfolio/project history
+• Professional links
+• Availability information
+
+8.3 DISCOVERY
+• Search users
+• Search mentors
+• Search projects
+• Filter by skills/technology/category
+• View public profiles and project details
+
+8.4 PROJECTS
+• Create, edit, archive, and view projects
+• Project description and technology stack
+• Public/private/invite-only visibility
+• Project owner
+• Team members
+• Join/invitation workflow
+
+8.5 PROJECT WORKSPACE
+• Member list
+• Kanban-style tasks
+• Project discussion/chat
+• File attachments
+• Activity timeline
+• AI assistant context linked to the project
+
+8.6 MENTORSHIP
+• Discover mentors
+• Send mentorship request with context
+• Accept/reject/cancel requests
+• Establish mentor-student relationship
+• Chat after connection
+
+8.7 REAL-TIME CHAT
+• Direct conversations
+• Project group conversations
+• Message history
+• Online/typing/read-state foundations
+• Attachment support
+
+8.8 AI ASSISTANT
+• Project idea generation
+• Research assistance
+• Concept explanation
+• Documentation support
+• Learning roadmap suggestions
+• Code/error explanation
+• Conversation history
+
+8.9 TASKS
+• Create and assign tasks
+• Todo/In Progress/Done states
+• Priority
+• Due date
+• Task activity
+
+8.10 NOTIFICATIONS
+• Mentorship requests
+• Project invitations
+• Messages
+• Task assignments
+• System notifications
+• Read/unread state
+
+9. MVP USER JOURNEYS
+
+Student:
+Register → Complete Profile → Discover Mentor/Project → Send Request or Join → Create/Join Workspace → Collaborate → Ask Mentor/AI → Complete Tasks → Showcase Project
+
+Mentor/Professional:
+Register → Complete Professional Profile → Receive Mentorship/Collaboration Request → Accept → Communicate → Guide Project → Review Progress
+
+10. PRODUCT PRINCIPLES
+
+• Project-first: the project workspace is the core product experience.
+• MVP-first: avoid building courses, payments, recruiters, video calls, and other expansion features before validating the core.
+• Trust and safety: profiles, requests, reporting/moderation, and permissions must be designed carefully.
+• Useful AI: AI should be contextual to projects and learning rather than being an unrelated generic chatbot.
+• Scalable foundations: data and module boundaries should support later expansion.
+
+11. SUCCESS METRICS
+
+• User registrations and profile completion rate
+• Weekly/monthly active users
+• Projects created and active projects
+• Mentorship requests and accepted connections
+• Project membership/join rate
+• Messages and collaboration activity
+• AI assistant usage and repeat usage
+• Project completion rate
+• User retention
+
+12. BUSINESS MODEL — FUTURE
+
+• Paid mentorship commission
+• Premium AI and collaboration features
+• Course marketplace commission
+• Recruiter subscriptions
+• Institution/team workspaces
+
+These monetization features are intentionally outside the MVP implementation unless required for validation.
+
+13. FUTURE ROADMAP
+
+• Courses and learning paths
+• Paid mentorship and payments
+• Video meetings
+• GitHub integration
+• Recruiter portal
+• Certificates
+• Communities
+• Hackathons
+• Institutional workspaces
+• Mobile applications
+• Advanced AI project review
+
+14. COMPETITIVE POSITIONING
+
+ProtoHub sits at the intersection of learning, professional networking, project collaboration, and AI assistance. The differentiation is not simply having many tools; it is organizing those capabilities around real-world project building and mentorship.
+
+============================================================
+PART II — SOFTWARE REQUIREMENTS SPECIFICATION (SRS)
+============================================================
+
+1. PURPOSE
+
+This SRS defines the functional, non-functional, architectural, security, data, API, and implementation requirements for the ProtoHub MVP.
+
+2. SCOPE
+
+The MVP is a web application using a Next.js frontend and NestJS modular-monolith backend, backed by PostgreSQL through Prisma, with Socket.IO for real-time communication, Cloudinary for file storage, and an external AI provider for the AI assistant.
+
+3. USER ROLES AND PERMISSIONS
+
+Student:
+Profile, discover, create/join projects, mentorship requests, chat, tasks, AI.
+
+Teacher:
+Professional profile, mentorship, project collaboration, chat, project guidance.
+
+Professional:
+Professional profile, mentorship, project collaboration, chat, project guidance.
+
+Admin:
+Moderation, user/project management, reports, platform administration.
+
+4. FUNCTIONAL REQUIREMENTS
+
+FR-AUTH — The system shall support registration, login, logout, password reset, email verification, session/token management, and role-based authorization.
+
+FR-PROFILE — The system shall allow users to create and edit professional profiles containing identity, bio, education, experience, skills, interests, and portfolio information.
+
+FR-DISCOVERY — The system shall allow users to search and filter users, mentors, and projects.
+
+FR-PROJECT — The system shall allow authorized users to create, update, view, archive, and manage projects.
+
+FR-WORKSPACE — Each project shall have an associated workspace for members, tasks, files, discussion, activity, and project-context AI.
+
+FR-MEMBERS — Project owners shall be able to invite/remove members according to project permissions; users shall be able to join projects where permitted.
+
+FR-MENTOR — Students shall be able to request mentorship and mentors shall be able to accept, reject, or otherwise manage requests.
+
+FR-CHAT — The system shall support direct and project conversations with persistent message history and real-time delivery.
+
+FR-TASK — Authorized project members shall be able to create, assign, prioritize, update, and complete tasks.
+
+FR-NOTIFY — The system shall create notifications for defined collaboration and system events and maintain read/unread state.
+
+FR-AI — The system shall provide project-related AI assistance and persist AI conversation history where permitted.
+
+FR-FILES — The system shall support secure file uploads through external object/media storage and persist metadata/URLs.
+
+FR-ADMIN — Administrators shall be able to moderate users, projects, and platform reports.
+
+5. NON-FUNCTIONAL REQUIREMENTS
+
+• Performance: optimize common API responses and database queries; use pagination for list endpoints and indexes for high-frequency queries.
+• Scalability: modular backend boundaries must permit future extraction into services if growth requires it.
+• Security: passwords must be strongly hashed; secrets must be environment-managed; inputs validated; authorization enforced server-side.
+• Availability: application should be deployable using managed cloud infrastructure with health checks and automated deployment.
+• Reliability: database constraints and transactions must protect relationship integrity.
+• Accessibility: UI should follow accessible semantic HTML, keyboard navigation, labels, focus states, and contrast requirements.
+• Responsiveness: core workflows must work across desktop, tablet, and mobile viewport sizes.
+• Observability: structured server logs, error handling, and basic health endpoints are required.
+
+6. SYSTEM ARCHITECTURE
+
+Client
+  ↓
+Next.js / React / TypeScript
+  ↓ REST + WebSocket
+NestJS Modular Monolith
+  ├─ Auth
+  ├─ Users / Profiles
+  ├─ Projects / Workspace
+  ├─ Tasks
+  ├─ Mentorship
+  ├─ Chat
+  ├─ Notifications
+  ├─ Search
+  ├─ AI
+  ├─ Uploads
+  └─ Admin
+  ↓
+Prisma ORM
+  ↓
+PostgreSQL
+
+External services:
+Cloudinary → media/files
+AI Provider → AI assistance
+Email provider → verification/reset emails
+
+7. BACKEND MODULE RULES
+
+• Controllers handle transport concerns only.
+• Services contain business logic.
+• Repositories/data-access abstractions isolate persistence logic where useful.
+• DTOs validate and describe input contracts.
+• Guards enforce authentication and authorization.
+• Shared utilities must remain generic and not contain feature-specific business logic.
+• Modules should expose only the interfaces required by other modules.
+
+8. DATABASE REQUIREMENTS
+
+Core entities for the MVP include:
+User, Profile, Skill, UserSkill, Project, ProjectMember, Workspace, Task, Conversation, ConversationMember, Message, MentorshipRequest, Notification, AIConversation, AIMessage, and File metadata where implemented.
+
+• Use UUID primary keys.
+• Use foreign keys and explicit relationship constraints.
+• Use createdAt/updatedAt consistently.
+• Use indexes on authentication identifiers and frequent lookup/filter fields.
+• Use uniqueness constraints for email and other identifiers that must be unique.
+• Use transactional operations for multi-record state changes such as accepting mentorship or project membership operations.
+
+9. API REQUIREMENTS
+
+Authentication:
+POST   /auth/register
+POST   /auth/login
+POST   /auth/refresh
+POST   /auth/logout
+GET    /auth/me
+POST   /auth/forgot-password
+POST   /auth/reset-password
+
+Users / Profiles:
+GET    /users
+GET    /users/:id
+GET    /users/me
+PATCH  /users/me
+GET    /users/me/skills
+PUT    /users/me/skills
+
+Projects:
+GET    /projects
+POST   /projects
+GET    /projects/:id
+PATCH  /projects/:id
+DELETE /projects/:id
+POST   /projects/:id/join
+POST   /projects/:id/invite
+DELETE /projects/:id/members/:userId
+
+Mentorship:
+GET    /mentorship/requests
+POST   /mentorship/requests
+PATCH  /mentorship/requests/:id/accept
+PATCH  /mentorship/requests/:id/reject
+PATCH  /mentorship/requests/:id/cancel
+
+Tasks:
+GET    /projects/:projectId/tasks
+POST   /projects/:projectId/tasks
+PATCH  /tasks/:id
+DELETE /tasks/:id
+
+AI:
+POST   /ai/conversations
+GET    /ai/conversations
+GET    /ai/conversations/:id
+POST   /ai/conversations/:id/messages
+
+10. REAL-TIME REQUIREMENTS
+
+Socket.IO shall be used for real-time messaging and collaboration events. The server must authenticate socket connections, authorize conversation/project access, persist messages before or as part of delivery, and handle reconnects gracefully.
+
+Events:
+message:new
+message:read
+typing:start
+typing:stop
+presence:update
+notification:new
+
+11. FILE HANDLING
+
+• Files should be uploaded to managed external storage rather than stored directly in PostgreSQL.
+• The backend should validate file metadata and authorization before issuing/accepting uploads.
+• Database records should store file owner, project/workspace association, original name, MIME type, size, storage key/URL, and timestamps.
+• Access to private files must be authorization-controlled.
+
+12. AI REQUIREMENTS
+
+• AI requests must be routed through the backend; provider secrets must never be exposed to the browser.
+• Project context should be supplied only when the requesting user has access to the project.
+• Conversation history should be persisted where enabled.
+• Prompts should be versionable/configurable rather than scattered through frontend code.
+• Implement rate limits and usage controls before public launch.
+
+13. SECURITY REQUIREMENTS
+
+• Passwords must use Argon2id or an equivalently strong password hashing scheme.
+• Use secure, HTTP-only cookies for refresh/session tokens where appropriate.
+• Use short-lived access tokens.
+• Apply RBAC on every protected server operation.
+• Validate request bodies, params, and query strings.
+• Configure CORS explicitly.
+• Use security headers and rate limiting.
+• Do not log passwords, tokens, API keys, or sensitive user data.
+• Use environment variables for secrets and provide a safe .env.example.
+
+14. FRONTEND REQUIREMENTS
+
+• Use Next.js App Router and TypeScript.
+• Use a consistent design system based on shadcn/ui and Tailwind CSS.
+• Use TanStack Query for server state.
+• Use React Hook Form + Zod for complex forms.
+• Implement loading, empty, error, and success states for every major data-driven page.
+• Use route protection for authenticated pages.
+• Keep components reusable and feature-oriented.
+
+15. REQUIRED MVP ROUTES
+
+Public:
+/ 
+/login
+/register
+/about
+
+Authenticated:
+/dashboard
+/discover
+/mentors
+/projects
+/projects/create
+/projects/[id]
+/messages
+/ai
+/profile
+/settings
+
+16. TESTING REQUIREMENTS
+
+• Unit tests for important business rules and services.
+• Integration tests for database-backed modules.
+• API/e2e tests for authentication, projects, mentorship, and core collaboration workflows.
+• Frontend tests for critical forms and user journeys where appropriate.
+• Manual smoke testing before each release.
+• Test authorization failures, not only successful requests.
+
+17. DEPLOYMENT REQUIREMENTS
+
+• Frontend deployable to Vercel.
+• Backend deployable to Railway or equivalent container/Node platform.
+• PostgreSQL deployable on Neon or equivalent managed PostgreSQL.
+• Production environment must use separate secrets and database credentials.
+• CI should run linting, type checking, tests, and build verification.
+• Database migrations must be version-controlled.
+
+18. MVP ACCEPTANCE CRITERIA
+
+• A new student can register, verify/access an account, and complete a profile.
+• A user can discover mentors and projects.
+• A student can create a project and invite/join members according to permissions.
+• Project members can access a shared workspace and manage tasks.
+• Users can create direct/project conversations and exchange persistent messages.
+• A student can submit a mentorship request and a mentor can accept/reject it.
+• Users receive relevant notifications.
+• An authorized user can use the AI assistant with project context.
+• Unauthorized users cannot access private project data or conversations.
+• The MVP can be deployed from a clean environment using documented setup instructions.
+
+19. RECOMMENDED DEVELOPMENT SEQUENCE
+
+Sprint 1 → Repository + PostgreSQL + Prisma + database + seed
+Sprint 2 → Auth + Users + Profiles + RBAC
+Sprint 3 → Projects + Members + Workspace + Tasks
+Sprint 4 → Mentorship + Notifications + Search
+Sprint 5 → Chat + Socket.IO + File uploads
+Sprint 6 → AI Assistant + AI history + usage controls
+Sprint 7 → UI polish + accessibility + testing
+Sprint 8 → Security review + CI/CD + production deployment
+
+20. DEFINITION OF DONE
+
+• Feature requirements are implemented and documented.
+• Authorization rules are enforced server-side.
+• Database migrations are committed.
+• Validation and error handling are implemented.
+• Tests cover critical behavior.
+• UI has loading, empty, error, and success states.
+• No secrets are committed.
+• Lint/type-check/build pass.
+• Feature is manually smoke-tested.
+• Documentation is updated.
